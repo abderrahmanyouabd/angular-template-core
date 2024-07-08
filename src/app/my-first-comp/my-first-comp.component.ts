@@ -9,9 +9,13 @@ export class MyFirstCompComponent {
   email: string = '';
   password: string = '';
   list: any = [];
+  isSubmitted: boolean = false;
 
   onSubmit() {
-    this.list.push(this.email)
-    this.list.push(this.password)
+    // this.list.push(this.email)
+    // this.list.push(this.password)
+    this.isSubmitted = true;
+    this.list.push({n1: this.email,  n2: this.password})
+
   }
 }
