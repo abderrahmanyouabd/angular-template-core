@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Output} from '@angular/core';
 
 @Component({
   selector: 'app-my-first-comp',
@@ -11,11 +11,16 @@ export class MyFirstCompComponent {
   list: any = [];
   isSubmitted: boolean = false;
 
+
   onSubmit() {
     // this.list.push(this.email)
     // this.list.push(this.password)
     this.isSubmitted = true;
-    this.list.push({n1: this.email,  n2: this.password})
+    this.list.push({"email": this.email,  "password": this.password})
 
+  }
+
+  deleteCard(index: number) {
+    this.list.splice(index, 1);
   }
 }
