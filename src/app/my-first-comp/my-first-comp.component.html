@@ -18,12 +18,14 @@
 <table *ngIf="isSubmitted">
   <thead>
   <tr>
+    <th>#</th>
     <th>Email</th>
     <th>Password</th>
   </tr>
   </thead>
   <tbody *ngFor="let p of list">
   <tr>
+    <td>{{list.indexOf(p)}}</td>
     <td>{{p.n1}}</td>
     <td>{{p.n2}}</td>
   </tr>
