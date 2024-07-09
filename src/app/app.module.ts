@@ -9,6 +9,7 @@ import { FormDetailsComponent } from './form-details/form-details.component';
 import {MyFirstService} from "./services/my-first.service";
 import { MenuComponent } from './menu/menu.component';
 import { AboutComponent } from './about/about.component';
+import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -21,10 +22,12 @@ import { AboutComponent } from './about/about.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })
