@@ -1,4 +1,5 @@
 import {Component, Output} from '@angular/core';
+import {MyFirstService} from "../services/my-first.service";
 
 @Component({
   selector: 'app-my-first-comp',
@@ -11,16 +12,21 @@ export class MyFirstCompComponent {
   list: any = [];
   isSubmitted: boolean = false;
 
+  constructor(private service: MyFirstService) {
+    this.list = this.service.getAllMessages();
+    this.isSubmitted = this.list.length > 0;
+  }
+
 
   onSubmit() {
     // this.list.push(this.email)
     // this.list.push(this.password)
     this.isSubmitted = true;
-    this.list.push({"email": this.email,  "password": this.password})
+    this.service.insert({"email": this.email,  "password": this.password});
 
   }
 
   deleteCard(index: number) {
-    this.list.splice(index, 1);
+    this.service.deleteMessage(index);
   }
 }
